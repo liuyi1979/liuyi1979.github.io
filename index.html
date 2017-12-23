@@ -263,10 +263,137 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/22/Docker技术入门/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="刘 奕">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/heshang.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="云在青天水在瓶">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/12/22/Docker技术入门/" itemprop="url">Docker技术入门</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-22T16:45:01+08:00">
+                2017-12-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>随着项目代码规模逐渐庞大，越来越多的组件和模块的出现，一方面系统的部署变得更加复杂，另外，由于项目组分属两地，异地开发的模式导致了两地的系统运行环境如何保持一致也成了问题。通过技术调研觉得使用Docker来解决我们的问题。</p>
+<h2 id="Docker是什么？"><a href="#Docker是什么？" class="headerlink" title="Docker是什么？"></a>Docker是什么？</h2><p><a href="www.docker.com">Docker</a>是一家公司的名字，这家公司提供了一款同名的软件产品，是一个开源的容器引擎。那容器又是干啥的呢？顾名思义，物理世界中的容器是用来装东西的，那Docker这个容器也是用来装东西的，只不过它装的是一个个的应用程序，可以运行在众多标准的操作系统环境上，比如Linux，Windows，MacOS。</p>
+<h2 id="使用Docker有啥好处？"><a href="#使用Docker有啥好处？" class="headerlink" title="使用Docker有啥好处？"></a>使用Docker有啥好处？</h2><h3 id="好处一：敏捷-（Agility）"><a href="#好处一：敏捷-（Agility）" class="headerlink" title="好处一：敏捷 （Agility）"></a>好处一：敏捷 （Agility）</h3><p>在开发和部署过程中，我们经常会遇到要下载和安装各种应用软件的需要。这其实是很麻烦的一件事情。比如，有的软件在Linux环境下的安装需要各种库，如果对Linux不是很熟悉的小伙伴就会在搭环境这个环节耗时耗力。但是使用Docker，可以将安装部署的效率极大的提升。一个pull命令就可以将需要的应用软件的镜像从远程的仓库直接下载到本地，然后一个run命令就可以快速启动镜像为一个容器的实例。</p>
+<p>另一个场景，如果需要更换我们的应用系统中的某个组件，比如想更换某个tomcatWeb服务器的版本。只需要pull所需版本的镜像，停掉之前运行的tomcat容器，将新的tomcat镜像启动起来（启动时，需要将需要发布的Web应用War文件挂载到容器上）。</p>
+<h3 id="好处二：可携带-（Portability）"><a href="#好处二：可携带-（Portability）" class="headerlink" title="好处二：可携带 （Portability）"></a>好处二：可携带 （Portability）</h3><p>因为是容器，所以只要有能够运行容器的环境，这个容器里的应用程序就可以在哪里都能运行。不同的操作系统，或者是运行在云平台上。</p>
+<h3 id="好处三：安全-（Security）"><a href="#好处三：安全-（Security）" class="headerlink" title="好处三：安全 （Security）"></a>好处三：安全 （Security）</h3><p>安全体现在容器与容器之间是隔离的。隔离带来的好处是每个容器在运行时所需的资源互不影响，运行时的环境变量也是独立的。</p>
+<p>那有人就会问了，这感觉就是虚拟化的技术，和以前用的虚拟机有啥区别呢？就我目前的使用体会来讲，以前用VMware来创建虚拟机，虚拟出来的是一个操作系统环境，然后再在上面安装各种软件。创建N个虚拟机，就需要虚拟化出来N个这样的环境。每个虚拟机由于要装操作系统，所占的磁盘空间巨大，一般的就有几个G，大的几十个G也很常见。而Docker的容器都是运行在同一个操作系统上，不同容器所用的文件在操作系统的文件系统中进行了隔离。只不过给人的感觉像是各种都有一个运行的操作系统。这样的不同导致Docker启停非常快，通常几秒就搞定，而虚拟机往往需要好几分钟。Docker容器一般也就几十，或者上百M，比虚拟机小太多。</p>
+<p><img src="https://www.docker.com/sites/default/files/Container%402x.png" width="50%" height="50%" align="left"><img src="https://www.docker.com/sites/default/files/VM%402x.png" width="50%" height="50%" align="right"></p>
+<h2 id="怎么使用Docker？"><a href="#怎么使用Docker？" class="headerlink" title="怎么使用Docker？"></a>怎么使用Docker？</h2>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/12/test-hello-Siemens/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="刘奕">
+      <meta itemprop="name" content="刘 奕">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="/images/heshang.jpg">
     </span>
@@ -390,7 +517,7 @@
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/12/hello-world/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="刘奕">
+      <meta itemprop="name" content="刘 奕">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="/images/heshang.jpg">
     </span>
@@ -537,8 +664,8 @@
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/heshang.jpg"
-               alt="刘奕" />
-          <p class="site-author-name" itemprop="name">刘奕</p>
+               alt="刘 奕" />
+          <p class="site-author-name" itemprop="name">刘 奕</p>
            
               <p class="site-description motion-element" itemprop="description">关注工业物联网；爱好读书，打坐</p>
           
@@ -548,7 +675,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">3</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -607,7 +734,7 @@
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">刘奕</span>
+  <span class="author" itemprop="copyrightHolder">刘 奕</span>
 </div>
 
 
