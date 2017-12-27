@@ -78,7 +78,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Docker," />
 
 
 
@@ -95,6 +95,7 @@
 
 
 <meta name="description" content="在上一篇文章中我们初步了解了Docker是干嘛用的，以及有啥好处，那在这篇文章中我们来看看Docker怎么用。 首先，需要理解Docker中几个核心的慨念。 镜像和虚拟机里面的镜像的概念很类似，这里是指的针对Docker引擎的一种应用程序模板。比如说某个数据库的镜像文件，或者操作系统的镜像文件。 容器容器是镜像文件运行起来的一个实例。这就意味着一个镜像能够启动多个实例。 仓库仓库是存放镜像文件的场">
+<meta name="keywords" content="Docker">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Docker技术入门（二）">
 <meta property="og:url" content="http://yoursite.com/2017/12/24/Docker技术入门（二）/index.html">
@@ -102,7 +103,7 @@
 <meta property="og:description" content="在上一篇文章中我们初步了解了Docker是干嘛用的，以及有啥好处，那在这篇文章中我们来看看Docker怎么用。 首先，需要理解Docker中几个核心的慨念。 镜像和虚拟机里面的镜像的概念很类似，这里是指的针对Docker引擎的一种应用程序模板。比如说某个数据库的镜像文件，或者操作系统的镜像文件。 容器容器是镜像文件运行起来的一个实例。这就意味着一个镜像能够启动多个实例。 仓库仓库是存放镜像文件的场">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/images/pasted-0.png">
-<meta property="og:updated_time" content="2017-12-27T07:56:33.966Z">
+<meta property="og:updated_time" content="2017-12-27T08:44:21.946Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Docker技术入门（二）">
 <meta name="twitter:description" content="在上一篇文章中我们初步了解了Docker是干嘛用的，以及有啥好处，那在这篇文章中我们来看看Docker怎么用。 首先，需要理解Docker中几个核心的慨念。 镜像和虚拟机里面的镜像的概念很类似，这里是指的针对Docker引擎的一种应用程序模板。比如说某个数据库的镜像文件，或者操作系统的镜像文件。 容器容器是镜像文件运行起来的一个实例。这就意味着一个镜像能够启动多个实例。 仓库仓库是存放镜像文件的场">
@@ -304,6 +305,28 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/容器/" itemprop="url" rel="index">
+                    <span itemprop="name">容器</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -344,7 +367,7 @@
 <p><code>$ sudo systemctl start docker</code></p>
 <p>现在，需要从Docker的官方仓库中将我们所需要的镜像文件弄到本地来。我们可以先在官方的仓库中查一下我们所需要的镜像是否存在。</p>
 <p><img src="\..\\images\pasted-0.png" alt="upload successful"></p>
-<p>可以看到大概有我们需要的mysql官方的镜像。</p>
+<p>可以看到有我们需要的mysql官方的镜像。</p>
 <p>将镜像文件拉到本地。</p>
 <p><code>$ docker pull mysql</code></p>
 <p>完成后即可启动运行一个mysql的容器，名字为test-mysql。因为是数据库的容器，所以必须设置环境变量MYSQL_ROOT_PASSWORD。</p>
@@ -380,6 +403,12 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Docker/" rel="tag"># Docker</a>
+          
+        </div>
       
 
       
@@ -482,7 +511,25 @@
           
 
           
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
 
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
           
 
         </nav>
