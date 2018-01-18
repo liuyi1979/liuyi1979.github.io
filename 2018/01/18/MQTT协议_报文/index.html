@@ -78,7 +78,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Docker," />
+  <meta name="keywords" content="MQTT," />
 
 
 
@@ -94,21 +94,25 @@
 
 
 
-<meta name="description" content="随着项目代码规模逐渐庞大，越来越多的组件和模块的出现，一方面系统的部署变得更加复杂，另外，由于项目组分属两地，异地开发的模式导致了两地的系统运行环境如何保持一致也成了问题。通过技术调研觉得使用Docker来解决我们的问题。 Docker是什么？Docker是一家公司的名字，这家公司提供了一款同名的软件产品，是一个开源的容器引擎。那容器又是干啥的呢？顾名思义，物理世界中的容器是用来装东西的，那Doc">
-<meta name="keywords" content="Docker">
+<meta name="description" content="做为一个协议，核心的内容就是使用协议者之间怎么通过这个协议来交流沟通的，报文体现了其交换方式和内容。 啥是报文呢？按照百度百科的解释，就是是网络中交换与传输的数据单元，即站点一次性要发送的数据块。报文包含了将要发送的完整的数据信息，其长短很不一致，长度不限且可变。 在这篇文章中，我们来看看这个MQTT的报文中包含了哪些信息。 MQTT协议中的报文结构定义如下：  可以看到固定报头是每个控制报文中都">
+<meta name="keywords" content="MQTT">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Docker技术入门(一)">
-<meta property="og:url" content="http://yoursite.com/2017/12/22/Docker技术入门(一)/index.html">
+<meta property="og:title" content="MQTT协议_报文">
+<meta property="og:url" content="http://yoursite.com/2018/01/18/MQTT协议_报文/index.html">
 <meta property="og:site_name" content="云在青天水在瓶">
-<meta property="og:description" content="随着项目代码规模逐渐庞大，越来越多的组件和模块的出现，一方面系统的部署变得更加复杂，另外，由于项目组分属两地，异地开发的模式导致了两地的系统运行环境如何保持一致也成了问题。通过技术调研觉得使用Docker来解决我们的问题。 Docker是什么？Docker是一家公司的名字，这家公司提供了一款同名的软件产品，是一个开源的容器引擎。那容器又是干啥的呢？顾名思义，物理世界中的容器是用来装东西的，那Doc">
+<meta property="og:description" content="做为一个协议，核心的内容就是使用协议者之间怎么通过这个协议来交流沟通的，报文体现了其交换方式和内容。 啥是报文呢？按照百度百科的解释，就是是网络中交换与传输的数据单元，即站点一次性要发送的数据块。报文包含了将要发送的完整的数据信息，其长短很不一致，长度不限且可变。 在这篇文章中，我们来看看这个MQTT的报文中包含了哪些信息。 MQTT协议中的报文结构定义如下：  可以看到固定报头是每个控制报文中都">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://www.docker.com/sites/default/files/Container%402x.png">
-<meta property="og:image" content="https://www.docker.com/sites/default/files/VM%402x.png">
-<meta property="og:updated_time" content="2018-01-18T01:29:11.241Z">
+<meta property="og:image" content="http://yoursite.com/images/MQTTMessageFormat.png">
+<meta property="og:image" content="http://yoursite.com/images/MQTTFixHead.png">
+<meta property="og:image" content="http://yoursite.com/images/FixHead1.png">
+<meta property="og:image" content="http://yoursite.com/images/FixHead2.png">
+<meta property="og:image" content="http://yoursite.com/images/FixHeadLow.png">
+<meta property="og:image" content="http://yoursite.com/images/remainLength.png">
+<meta property="og:updated_time" content="2018-01-18T06:47:03.763Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Docker技术入门(一)">
-<meta name="twitter:description" content="随着项目代码规模逐渐庞大，越来越多的组件和模块的出现，一方面系统的部署变得更加复杂，另外，由于项目组分属两地，异地开发的模式导致了两地的系统运行环境如何保持一致也成了问题。通过技术调研觉得使用Docker来解决我们的问题。 Docker是什么？Docker是一家公司的名字，这家公司提供了一款同名的软件产品，是一个开源的容器引擎。那容器又是干啥的呢？顾名思义，物理世界中的容器是用来装东西的，那Doc">
-<meta name="twitter:image" content="https://www.docker.com/sites/default/files/Container%402x.png">
+<meta name="twitter:title" content="MQTT协议_报文">
+<meta name="twitter:description" content="做为一个协议，核心的内容就是使用协议者之间怎么通过这个协议来交流沟通的，报文体现了其交换方式和内容。 啥是报文呢？按照百度百科的解释，就是是网络中交换与传输的数据单元，即站点一次性要发送的数据块。报文包含了将要发送的完整的数据信息，其长短很不一致，长度不限且可变。 在这篇文章中，我们来看看这个MQTT的报文中包含了哪些信息。 MQTT协议中的报文结构定义如下：  可以看到固定报头是每个控制报文中都">
+<meta name="twitter:image" content="http://yoursite.com/images/MQTTMessageFormat.png">
 
 
 
@@ -137,13 +141,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/12/22/Docker技术入门(一)/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/01/18/MQTT协议_报文/"/>
 
 
 
 
 
-  <title>Docker技术入门(一) | 云在青天水在瓶</title>
+  <title>MQTT协议_报文 | 云在青天水在瓶</title>
   
 
 
@@ -266,7 +270,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/22/Docker技术入门(一)/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/18/MQTT协议_报文/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="刘 奕">
@@ -283,7 +287,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Docker技术入门(一)</h1>
+          <h1 class="post-title" itemprop="name headline">MQTT协议_报文</h1>
         
 
         <div class="post-meta">
@@ -295,8 +299,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-22T16:45:01+08:00">
-                2017-12-22
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-18T09:39:00+08:00">
+                2018-01-18
               </time>
             
 
@@ -318,8 +322,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/容器/" itemprop="url" rel="index">
-                    <span itemprop="name">容器</span>
+                  <a href="/categories/物联网/" itemprop="url" rel="index">
+                    <span itemprop="name">物联网</span>
                   </a>
                 </span>
 
@@ -355,15 +359,21 @@
       
 
       
-        <p>随着项目代码规模逐渐庞大，越来越多的组件和模块的出现，一方面系统的部署变得更加复杂，另外，由于项目组分属两地，异地开发的模式导致了两地的系统运行环境如何保持一致也成了问题。通过技术调研觉得使用Docker来解决我们的问题。</p>
-<h2 id="Docker是什么？"><a href="#Docker是什么？" class="headerlink" title="Docker是什么？"></a>Docker是什么？</h2><p><a href="www.docker.com">Docker</a>是一家公司的名字，这家公司提供了一款同名的软件产品，是一个开源的容器引擎。那容器又是干啥的呢？顾名思义，物理世界中的容器是用来装东西的，那Docker这个容器也是用来装东西的，只不过它装的是一个个的应用程序，可以运行在众多标准的操作系统环境上，比如Linux，Windows，MacOS。</p>
-<h2 id="使用Docker有啥好处？"><a href="#使用Docker有啥好处？" class="headerlink" title="使用Docker有啥好处？"></a>使用Docker有啥好处？</h2><h3 id="好处一：敏捷-（Agility）"><a href="#好处一：敏捷-（Agility）" class="headerlink" title="好处一：敏捷 （Agility）"></a>好处一：敏捷 （Agility）</h3><p>在开发和部署过程中，我们经常会遇到要下载和安装各种应用软件的需要。这其实是很麻烦的一件事情。比如，有的软件在Linux环境下的安装需要各种库，如果对Linux不是很熟悉的小伙伴就会在搭环境这个环节耗时耗力。但是使用Docker，可以将安装部署的效率极大的提升。一个pull命令就可以将需要的应用软件的镜像从远程的仓库直接下载到本地，然后一个run命令就可以快速启动镜像为一个容器的实例。</p>
-<p>另一个场景，如果需要更换我们的应用系统中的某个组件，比如想更换某个JAVA应用程序所在的JRE的版本。只需要pull所需JRE版本的镜像，停掉之前运行的JRE所在容器，将新的镜像启动起来。</p>
-<h3 id="好处二：可携带-（Portability）"><a href="#好处二：可携带-（Portability）" class="headerlink" title="好处二：可携带 （Portability）"></a>好处二：可携带 （Portability）</h3><p>因为是容器，所以只要有能够运行容器的环境，这个容器里的应用程序就可以在哪里都能运行。不同的操作系统，或者是运行在云平台上。</p>
-<h3 id="好处三：安全-（Security）"><a href="#好处三：安全-（Security）" class="headerlink" title="好处三：安全 （Security）"></a>好处三：安全 （Security）</h3><p>安全体现在容器与容器之间是隔离的。隔离带来的好处是每个容器在运行时所需的资源互不影响，运行时的环境变量也是独立的。</p>
-<p>那有人就会问了，这感觉就是虚拟化的技术，和以前用的虚拟机有啥区别呢？就我目前的使用体会来讲，以前用VMware来创建虚拟机，虚拟出来的是一个操作系统环境，然后再在上面安装各种软件。创建N个虚拟机，就需要虚拟化出来N个这样的环境。每个虚拟机由于要装操作系统，所占的磁盘空间巨大，一般的就有几个G，大的几十个G也很常见。而Docker的容器都是运行在同一个操作系统上，不同容器所用的文件在操作系统的文件系统中进行了隔离。只不过给人的感觉像是各种都有一个运行的操作系统。这样的不同导致Docker启停非常快，通常几秒就搞定，而虚拟机往往需要好几分钟。Docker容器一般也就几十，或者上百M，比虚拟机小太多。</p>
-<p><img src="https://www.docker.com/sites/default/files/Container%402x.png" width="50%" height="50%" align="left"><img src="https://www.docker.com/sites/default/files/VM%402x.png" width="50%" height="50%" align="right"></p>
-<p>在下篇文章中，让我们通过一个例子来看看Docker是怎么玩的。</p>
+        <p>做为一个协议，核心的内容就是使用协议者之间怎么通过这个协议来交流沟通的，报文体现了其交换方式和内容。</p>
+<p>啥是报文呢？按照百度百科的解释，就是是网络中交换与传输的数据单元，即站点一次性要发送的数据块。报文包含了将要发送的完整的数据信息，其长短很不一致，长度不限且可变。</p>
+<p>在这篇文章中，我们来看看这个MQTT的报文中包含了哪些信息。</p>
+<p>MQTT协议中的报文结构定义如下：</p>
+<p><img src="\..\\images\MQTTMessageFormat.png" alt="upload successful"></p>
+<p>可以看到固定报头是每个控制报文中都必须有的，它干啥了呢？就是来指定这个报文，这个消息是什么类型，这里的类型是指在发布订阅模式中的交互过程的消息类型，比如是要订阅了，还是要发布消息了等等。</p>
+<p>固定报头的格式如下：</p>
+<p><img src="\..\\images\MQTTFixHead.png" alt="upload successful"></p>
+<p>可以看到要在固定报头中指明一个报文的类型，要在第一个字节中的低4位和高4位分别做指定。其中高四位是直接来说明这个报文是啥类型。4位能标识2的4次方，即0-15共16个数。这16个数分别代表如下是报文类型（0和15是保留的，其实只有14种有效的报文类型）。</p>
+<p><img src="\..\\images\FixHead1.png" alt="upload successful"><br><img src="\..\\images\FixHead2.png" alt="upload successful"></p>
+<p>那低4位是在高四位确定了是哪种报文类型后，再进一步说明该报文类型相关属性的一个标识。目前的版本中有很多报文类型的低4位还处于保留状态，可能在未来会用上，目前对这低4位用上了的报文类型就4种，分别是PUBLISH，PUBREL, SUBSCRIBE, UNSUBSCRIBE。</p>
+<p><img src="\..\\images\FixHeadLow.png" alt="upload successful"></p>
+<p>其中DUP是来指明这个发布的报文消息是否为重发。QoS占了两位，是用来指明服务质量级别的。之前MQTT简介中提到过QoS是有3种级别的，所以需要两位来描述。RETAIN作为保留标志，暂时没啥用。</p>
+<p>固定报头中的<strong>剩余长度</strong>，是用来指明后面的可变报头和有效负载加起来一共有多少字节。总共最多可以用4个字节来描述剩余长度。那么相当于可传递的剩余长度最大到0XFF,0XFF,0XFF,0X7F个Byte，二进制表示为 <font color="red">1</font>111 1111，<font color="red">1</font>111 1111，<font color="red">1</font>111 1111,0111 1111。 （注意红色标识的1都是延续位，即表示该字节后还有字节）<br>字节数即为十进制 128<em>128</em>128*128-1 = 268435456个字节 =262144 KB = 256MB</p>
+<p><img src="\..\\images\remainLength.png" alt="upload successful"></p>
 
       
     </div>
@@ -381,7 +391,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Docker/" rel="tag"># Docker</a>
+            <a href="/tags/MQTT/" rel="tag"># MQTT</a>
           
         </div>
       
@@ -394,8 +404,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/12/12/hello-world/" rel="next" title="Hello World">
-                <i class="fa fa-chevron-left"></i> Hello World
+              <a href="/2017/12/28/MQTT协议_发布订阅/" rel="next" title="MQTT协议_发布订阅">
+                <i class="fa fa-chevron-left"></i> MQTT协议_发布订阅
               </a>
             
           </div>
@@ -403,10 +413,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/12/24/Docker技术入门（二）/" rel="prev" title="Docker技术入门（二）">
-                Docker技术入门（二） <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -458,17 +464,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview sidebar-panel">
+      <section class="site-overview sidebar-panel sidebar-panel-active">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/heshang.jpg"
@@ -530,22 +527,6 @@
 
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Docker是什么？"><span class="nav-number">1.</span> <span class="nav-text"><a href="#Docker&#x662F;&#x4EC0;&#x4E48;&#xFF1F;" class="headerlink" title="Docker&#x662F;&#x4EC0;&#x4E48;&#xFF1F;"></a>Docker&#x662F;&#x4EC0;&#x4E48;&#xFF1F;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用Docker有啥好处？"><span class="nav-number">2.</span> <span class="nav-text"><a href="#&#x4F7F;&#x7528;Docker&#x6709;&#x5565;&#x597D;&#x5904;&#xFF1F;" class="headerlink" title="&#x4F7F;&#x7528;Docker&#x6709;&#x5565;&#x597D;&#x5904;&#xFF1F;"></a>&#x4F7F;&#x7528;Docker&#x6709;&#x5565;&#x597D;&#x5904;&#xFF1F;</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#好处一：敏捷-（Agility）"><span class="nav-number">2.1.</span> <span class="nav-text"><a href="#&#x597D;&#x5904;&#x4E00;&#xFF1A;&#x654F;&#x6377;-&#xFF08;Agility&#xFF09;" class="headerlink" title="&#x597D;&#x5904;&#x4E00;&#xFF1A;&#x654F;&#x6377; &#xFF08;Agility&#xFF09;"></a>&#x597D;&#x5904;&#x4E00;&#xFF1A;&#x654F;&#x6377; &#xFF08;Agility&#xFF09;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#好处二：可携带-（Portability）"><span class="nav-number">2.2.</span> <span class="nav-text"><a href="#&#x597D;&#x5904;&#x4E8C;&#xFF1A;&#x53EF;&#x643A;&#x5E26;-&#xFF08;Portability&#xFF09;" class="headerlink" title="&#x597D;&#x5904;&#x4E8C;&#xFF1A;&#x53EF;&#x643A;&#x5E26; &#xFF08;Portability&#xFF09;"></a>&#x597D;&#x5904;&#x4E8C;&#xFF1A;&#x53EF;&#x643A;&#x5E26; &#xFF08;Portability&#xFF09;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#好处三：安全-（Security）"><span class="nav-number">2.3.</span> <span class="nav-text"><a href="#&#x597D;&#x5904;&#x4E09;&#xFF1A;&#x5B89;&#x5168;-&#xFF08;Security&#xFF09;" class="headerlink" title="&#x597D;&#x5904;&#x4E09;&#xFF1A;&#x5B89;&#x5168; &#xFF08;Security&#xFF09;"></a>&#x597D;&#x5904;&#x4E09;&#xFF1A;&#x5B89;&#x5168; &#xFF08;Security&#xFF09;</span></a></li></ol></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       

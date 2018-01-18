@@ -263,6 +263,292 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/18/MQTT协议_报文/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="刘 奕">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/heshang.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="云在青天水在瓶">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/01/18/MQTT协议_报文/" itemprop="url">MQTT协议_报文</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-18T09:39:00+08:00">
+                2018-01-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/物联网/" itemprop="url" rel="index">
+                    <span itemprop="name">物联网</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>做为一个协议，核心的内容就是使用协议者之间怎么通过这个协议来交流沟通的，报文体现了其交换方式和内容。</p>
+<p>啥是报文呢？按照百度百科的解释，就是是网络中交换与传输的数据单元，即站点一次性要发送的数据块。报文包含了将要发送的完整的数据信息，其长短很不一致，长度不限且可变。</p>
+<p>在这篇文章中，我们来看看这个MQTT的报文中包含了哪些信息。</p>
+<p>MQTT协议中的报文结构定义如下：</p>
+<p><img src="\..\\images\MQTTMessageFormat.png" alt="upload successful"></p>
+<p>可以看到固定报头是每个控制报文中都必须有的，它干啥了呢？就是来指定这个报文，这个消息是什么类型，这里的类型是指在发布订阅模式中的交互过程的消息类型，比如是要订阅了，还是要发布消息了等等。</p>
+<p>固定报头的格式如下：</p>
+<p><img src="\..\\images\MQTTFixHead.png" alt="upload successful"></p>
+<p>可以看到要在固定报头中指明一个报文的类型，要在第一个字节中的低4位和高4位分别做指定。其中高四位是直接来说明这个报文是啥类型。4位能标识2的4次方，即0-15共16个数。这16个数分别代表如下是报文类型（0和15是保留的，其实只有14种有效的报文类型）。</p>
+<p><img src="\..\\images\FixHead1.png" alt="upload successful"><br><img src="\..\\images\FixHead2.png" alt="upload successful"></p>
+<p>那低4位是在高四位确定了是哪种报文类型后，再进一步说明该报文类型相关属性的一个标识。目前的版本中有很多报文类型的低4位还处于保留状态，可能在未来会用上，目前对这低4位用上了的报文类型就4种，分别是PUBLISH，PUBREL, SUBSCRIBE, UNSUBSCRIBE。</p>
+<p><img src="\..\\images\FixHeadLow.png" alt="upload successful"></p>
+<p>其中DUP是来指明这个发布的报文消息是否为重发。QoS占了两位，是用来指明服务质量级别的。之前MQTT简介中提到过QoS是有3种级别的，所以需要两位来描述。RETAIN作为保留标志，暂时没啥用。</p>
+<p>固定报头中的<strong>剩余长度</strong>，是用来指明后面的可变报头和有效负载加起来一共有多少字节。总共最多可以用4个字节来描述剩余长度。那么相当于可传递的剩余长度最大到0XFF,0XFF,0XFF,0X7F个Byte，二进制表示为 <font color="red">1</font>111 1111，<font color="red">1</font>111 1111，<font color="red">1</font>111 1111,0111 1111。 （注意红色标识的1都是延续位，即表示该字节后还有字节）<br>字节数即为十进制 128<em>128</em>128*128-1 = 268435456个字节 =262144 KB = 256MB</p>
+<p><img src="\..\\images\remainLength.png" alt="upload successful"></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/28/MQTT协议_发布订阅/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="刘 奕">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/heshang.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="云在青天水在瓶">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/12/28/MQTT协议_发布订阅/" itemprop="url">MQTT协议_发布订阅</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-28T10:34:30+08:00">
+                2017-12-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>MQTT是Message Queuing Telemetry Transport <strong>(消息队列遥测传输)</strong> 的缩写。这个协议最初是由IBM公司开发与1998年，用于即时通信。该协议目前在物联网平台里被广泛使用，其原因是它具有轻量级，节省通信的带宽，节约通信所耗电量的优点。当前该协议的最新版本是3.1.1，由OASIS联盟制定。该协议现在也成为了ISO的标准。</p>
+<p>要理解MQTT协议，主要从两个方面入手，一个是要理解什么是发布订阅模式，另一个是理解MQTT的报文具体内容。</p>
+<p>发布订阅（Pub/Sub）模式的逻辑图如下：</p>
+<p><img src="\..\\images\pubSub.png" alt="upload successful"></p>
+<p>其中有几个关键概念：</p>
+<p><strong>发布者（Publisher）</strong>：负责将消息以某个主题发布到代理那里去。</p>
+<p><strong>代理（Broker）</strong>：类似于一个消息的中转站，负责接收发布者的消息，接收订阅者关于某个主题的订阅请求，以及向订阅者推送相关主题的消息内容。</p>
+<p><strong>订阅者（Subscriber）</strong>：负责向代理发起关于某个主题的订阅请求，并且接收该主题的消息内容。</p>
+<p><strong>主题（Topic）</strong>：某个方面的消息内容。这是个逻辑概念，可以按照使用者的意愿做任意的定义。</p>
+<p>如果还不理解，我们可以打个比方，比如某个专门报道明星八卦新闻的手机应用，它其实就是上述概念中代理的角色。它创建了很多主题，比如明星桃色事件主题，香港艺人花边新闻主题。然后有好多狗仔（发布者）负责去找到这些主题相关的消息，当找到该类消息后，就发布到该手机应用。同时手机应用有很多对这些主题分别感兴趣的读者（订阅者），会去订阅这些主题，当主题中有新的内容（消息）产生的时候，手机APP就会将内容推送给这些读者。</p>
+<p>了解了发布订阅模式以后，接下来就可以来看具体MQTT协议是怎么实现上述模式的。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/24/Docker技术入门（二）/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -480,6 +766,28 @@
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/容器/" itemprop="url" rel="index">
+                    <span itemprop="name">容器</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -728,7 +1036,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">5</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -739,7 +1047,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-count">2</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -750,7 +1058,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-count">2</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -792,7 +1100,7 @@
         <div class="copyright" >
   
   &copy; 
-  <span itemprop="copyrightYear">2017</span>
+  <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
