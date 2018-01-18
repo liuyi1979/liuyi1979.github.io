@@ -78,7 +78,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="MQTT," />
 
 
 
@@ -95,6 +95,7 @@
 
 
 <meta name="description" content="MQTT是Message Queuing Telemetry Transport (消息队列遥测传输) 的缩写。这个协议最初是由IBM公司开发与1998年，用于即时通信。该协议目前在物联网平台里被广泛使用，其原因是它具有轻量级，节省通信的带宽，节约通信所耗电量的优点。当前该协议的最新版本是3.1.1，由OASIS联盟制定。该协议现在也成为了ISO的标准。 要理解MQTT协议，主要从两个方面入手，一">
+<meta name="keywords" content="MQTT">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MQTT协议_发布订阅">
 <meta property="og:url" content="http://yoursite.com/2017/12/28/MQTT协议_发布订阅/index.html">
@@ -102,7 +103,7 @@
 <meta property="og:description" content="MQTT是Message Queuing Telemetry Transport (消息队列遥测传输) 的缩写。这个协议最初是由IBM公司开发与1998年，用于即时通信。该协议目前在物联网平台里被广泛使用，其原因是它具有轻量级，节省通信的带宽，节约通信所耗电量的优点。当前该协议的最新版本是3.1.1，由OASIS联盟制定。该协议现在也成为了ISO的标准。 要理解MQTT协议，主要从两个方面入手，一">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/images/pubSub.png">
-<meta property="og:updated_time" content="2018-01-18T01:37:48.580Z">
+<meta property="og:updated_time" content="2018-01-18T07:04:12.363Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MQTT协议_发布订阅">
 <meta name="twitter:description" content="MQTT是Message Queuing Telemetry Transport (消息队列遥测传输) 的缩写。这个协议最初是由IBM公司开发与1998年，用于即时通信。该协议目前在物联网平台里被广泛使用，其原因是它具有轻量级，节省通信的带宽，节约通信所耗电量的优点。当前该协议的最新版本是3.1.1，由OASIS联盟制定。该协议现在也成为了ISO的标准。 要理解MQTT协议，主要从两个方面入手，一">
@@ -293,7 +294,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-28T10:34:30+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-28T10:34:00+08:00">
                 2017-12-28
               </time>
             
@@ -340,6 +341,29 @@
 <p><strong>代理（Broker）</strong>：类似于一个消息的中转站，负责接收发布者的消息，接收订阅者关于某个主题的订阅请求，以及向订阅者推送相关主题的消息内容。</p>
 <p><strong>订阅者（Subscriber）</strong>：负责向代理发起关于某个主题的订阅请求，并且接收该主题的消息内容。</p>
 <p><strong>主题（Topic）</strong>：某个方面的消息内容。这是个逻辑概念，可以按照使用者的意愿做任意的定义。</p>
+<p><strong>服务质量（QoS）</strong>：指定给订阅者提供消息服务的质量等级。</p>
+<table>
+<thead>
+<tr>
+<th>服务质量等级</th>
+<th style="text-align:center">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>QoS 0</td>
+<td style="text-align:center">最多分发一次</td>
+</tr>
+<tr>
+<td>QoS 1</td>
+<td style="text-align:center">至少分发一次</td>
+</tr>
+<tr>
+<td>QoS 2</td>
+<td style="text-align:center">仅分发一次</td>
+</tr>
+</tbody>
+</table>
 <p>如果还不理解，我们可以打个比方，比如某个专门报道明星八卦新闻的手机应用，它其实就是上述概念中代理的角色。它创建了很多主题，比如明星桃色事件主题，香港艺人花边新闻主题。然后有好多狗仔（发布者）负责去找到这些主题相关的消息，当找到该类消息后，就发布到该手机应用。同时手机应用有很多对这些主题分别感兴趣的读者（订阅者），会去订阅这些主题，当主题中有新的内容（消息）产生的时候，手机APP就会将内容推送给这些读者。</p>
 <p>了解了发布订阅模式以后，接下来就可以来看具体MQTT协议是怎么实现上述模式的。</p>
 
@@ -356,6 +380,12 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/MQTT/" rel="tag"># MQTT</a>
+          
+        </div>
       
 
       

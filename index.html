@@ -371,6 +371,7 @@
 <p>其中DUP是来指明这个发布的报文消息是否为重发。QoS占了两位，是用来指明服务质量级别的。之前MQTT简介中提到过QoS是有3种级别的，所以需要两位来描述。RETAIN作为保留标志，暂时没啥用。</p>
 <p>固定报头中的<strong>剩余长度</strong>，是用来指明后面的可变报头和有效负载加起来一共有多少字节。总共最多可以用4个字节来描述剩余长度。那么相当于可传递的剩余长度最大到0XFF,0XFF,0XFF,0X7F个Byte，二进制表示为 <font color="red">1</font>111 1111，<font color="red">1</font>111 1111，<font color="red">1</font>111 1111,0111 1111。 （注意红色标识的1都是延续位，即表示该字节后还有字节）<br>字节数即为十进制 128<em>128</em>128*128-1 = 268435456个字节 =262144 KB = 256MB</p>
 <p><img src="\..\\images\remainLength.png" alt="upload successful"></p>
+<p>在之后的MQTT协议的系列介绍中，我们再来看看可变报头和有效负载的相关内容。</p>
 
           
         
@@ -450,7 +451,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-28T10:34:30+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-28T10:34:00+08:00">
                 2017-12-28
               </time>
             
@@ -499,6 +500,29 @@
 <p><strong>代理（Broker）</strong>：类似于一个消息的中转站，负责接收发布者的消息，接收订阅者关于某个主题的订阅请求，以及向订阅者推送相关主题的消息内容。</p>
 <p><strong>订阅者（Subscriber）</strong>：负责向代理发起关于某个主题的订阅请求，并且接收该主题的消息内容。</p>
 <p><strong>主题（Topic）</strong>：某个方面的消息内容。这是个逻辑概念，可以按照使用者的意愿做任意的定义。</p>
+<p><strong>服务质量（QoS）</strong>：指定给订阅者提供消息服务的质量等级。</p>
+<table>
+<thead>
+<tr>
+<th>服务质量等级</th>
+<th style="text-align:center">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>QoS 0</td>
+<td style="text-align:center">最多分发一次</td>
+</tr>
+<tr>
+<td>QoS 1</td>
+<td style="text-align:center">至少分发一次</td>
+</tr>
+<tr>
+<td>QoS 2</td>
+<td style="text-align:center">仅分发一次</td>
+</tr>
+</tbody>
+</table>
 <p>如果还不理解，我们可以打个比方，比如某个专门报道明星八卦新闻的手机应用，它其实就是上述概念中代理的角色。它创建了很多主题，比如明星桃色事件主题，香港艺人花边新闻主题。然后有好多狗仔（发布者）负责去找到这些主题相关的消息，当找到该类消息后，就发布到该手机应用。同时手机应用有很多对这些主题分别感兴趣的读者（订阅者），会去订阅这些主题，当主题中有新的内容（消息）产生的时候，手机APP就会将内容推送给这些读者。</p>
 <p>了解了发布订阅模式以后，接下来就可以来看具体MQTT协议是怎么实现上述模式的。</p>
 

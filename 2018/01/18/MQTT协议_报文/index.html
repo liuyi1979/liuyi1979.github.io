@@ -108,7 +108,7 @@
 <meta property="og:image" content="http://yoursite.com/images/FixHead2.png">
 <meta property="og:image" content="http://yoursite.com/images/FixHeadLow.png">
 <meta property="og:image" content="http://yoursite.com/images/remainLength.png">
-<meta property="og:updated_time" content="2018-01-18T06:47:03.763Z">
+<meta property="og:updated_time" content="2018-01-18T07:06:43.373Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MQTT协议_报文">
 <meta name="twitter:description" content="做为一个协议，核心的内容就是使用协议者之间怎么通过这个协议来交流沟通的，报文体现了其交换方式和内容。 啥是报文呢？按照百度百科的解释，就是是网络中交换与传输的数据单元，即站点一次性要发送的数据块。报文包含了将要发送的完整的数据信息，其长短很不一致，长度不限且可变。 在这篇文章中，我们来看看这个MQTT的报文中包含了哪些信息。 MQTT协议中的报文结构定义如下：  可以看到固定报头是每个控制报文中都">
@@ -374,6 +374,7 @@
 <p>其中DUP是来指明这个发布的报文消息是否为重发。QoS占了两位，是用来指明服务质量级别的。之前MQTT简介中提到过QoS是有3种级别的，所以需要两位来描述。RETAIN作为保留标志，暂时没啥用。</p>
 <p>固定报头中的<strong>剩余长度</strong>，是用来指明后面的可变报头和有效负载加起来一共有多少字节。总共最多可以用4个字节来描述剩余长度。那么相当于可传递的剩余长度最大到0XFF,0XFF,0XFF,0X7F个Byte，二进制表示为 <font color="red">1</font>111 1111，<font color="red">1</font>111 1111，<font color="red">1</font>111 1111,0111 1111。 （注意红色标识的1都是延续位，即表示该字节后还有字节）<br>字节数即为十进制 128<em>128</em>128*128-1 = 268435456个字节 =262144 KB = 256MB</p>
 <p><img src="\..\\images\remainLength.png" alt="upload successful"></p>
+<p>在之后的MQTT协议的系列介绍中，我们再来看看可变报头和有效负载的相关内容。</p>
 
       
     </div>
