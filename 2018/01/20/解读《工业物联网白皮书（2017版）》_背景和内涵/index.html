@@ -78,7 +78,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Docker," />
+  <meta name="keywords" content="IIOT," />
 
 
 
@@ -94,20 +94,22 @@
 
 
 
-<meta name="description" content="在上一篇文章中我们初步了解了Docker是干嘛用的，以及有啥好处，那在这篇文章中我们来看看Docker怎么用。 首先，需要理解Docker中几个核心的慨念。 镜像和虚拟机里面的镜像的概念很类似，这里是指的针对Docker引擎的一种应用程序模板。比如说某个数据库的镜像文件，或者操作系统的镜像文件。 容器容器是镜像文件运行起来的一个实例。这就意味着一个镜像能够启动多个实例。 仓库仓库是存放镜像文件的场">
-<meta name="keywords" content="Docker">
+<meta name="description" content="在2017年9月，中国电子技术标准化研究院发布了最新的《工业物联网白皮书》。从该白皮书中我们可以窥视到当前国内业界对工业互联网的定义，现状的理解以及未来发展的展望。 发展背景发展现状：工业物联网推动产业转型升级工业物联网应用的出现，主要基于两个背景现状，一个是物联网技术本身的发展，再一个就是现在各国都提出的智能制造的战略方向（有点像三国鼎立，中国制造2025，美国先进制造伙伴计划，德国工业4.0）">
+<meta name="keywords" content="IIOT">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Docker技术入门（二）">
-<meta property="og:url" content="http://yoursite.com/2017/12/24/Docker技术入门（二）/index.html">
+<meta property="og:title" content="解读《工业物联网白皮书（2017版）》_背景和内涵">
+<meta property="og:url" content="http://yoursite.com/2018/01/20/解读《工业物联网白皮书（2017版）》_背景和内涵/index.html">
 <meta property="og:site_name" content="云在青天水在瓶">
-<meta property="og:description" content="在上一篇文章中我们初步了解了Docker是干嘛用的，以及有啥好处，那在这篇文章中我们来看看Docker怎么用。 首先，需要理解Docker中几个核心的慨念。 镜像和虚拟机里面的镜像的概念很类似，这里是指的针对Docker引擎的一种应用程序模板。比如说某个数据库的镜像文件，或者操作系统的镜像文件。 容器容器是镜像文件运行起来的一个实例。这就意味着一个镜像能够启动多个实例。 仓库仓库是存放镜像文件的场">
+<meta property="og:description" content="在2017年9月，中国电子技术标准化研究院发布了最新的《工业物联网白皮书》。从该白皮书中我们可以窥视到当前国内业界对工业互联网的定义，现状的理解以及未来发展的展望。 发展背景发展现状：工业物联网推动产业转型升级工业物联网应用的出现，主要基于两个背景现状，一个是物联网技术本身的发展，再一个就是现在各国都提出的智能制造的战略方向（有点像三国鼎立，中国制造2025，美国先进制造伙伴计划，德国工业4.0）">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/images/pasted-0.png">
-<meta property="og:updated_time" content="2017-12-27T08:44:21.946Z">
+<meta property="og:image" content="http://yoursite.com/images/IIOT-01.png">
+<meta property="og:image" content="http://yoursite.com/images/IIOT-02.png">
+<meta property="og:image" content="http://yoursite.com/images/IIOT-03.png">
+<meta property="og:updated_time" content="2018-04-03T08:51:46.964Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Docker技术入门（二）">
-<meta name="twitter:description" content="在上一篇文章中我们初步了解了Docker是干嘛用的，以及有啥好处，那在这篇文章中我们来看看Docker怎么用。 首先，需要理解Docker中几个核心的慨念。 镜像和虚拟机里面的镜像的概念很类似，这里是指的针对Docker引擎的一种应用程序模板。比如说某个数据库的镜像文件，或者操作系统的镜像文件。 容器容器是镜像文件运行起来的一个实例。这就意味着一个镜像能够启动多个实例。 仓库仓库是存放镜像文件的场">
-<meta name="twitter:image" content="http://yoursite.com/images/pasted-0.png">
+<meta name="twitter:title" content="解读《工业物联网白皮书（2017版）》_背景和内涵">
+<meta name="twitter:description" content="在2017年9月，中国电子技术标准化研究院发布了最新的《工业物联网白皮书》。从该白皮书中我们可以窥视到当前国内业界对工业互联网的定义，现状的理解以及未来发展的展望。 发展背景发展现状：工业物联网推动产业转型升级工业物联网应用的出现，主要基于两个背景现状，一个是物联网技术本身的发展，再一个就是现在各国都提出的智能制造的战略方向（有点像三国鼎立，中国制造2025，美国先进制造伙伴计划，德国工业4.0）">
+<meta name="twitter:image" content="http://yoursite.com/images/IIOT-01.png">
 
 
 
@@ -136,13 +138,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/12/24/Docker技术入门（二）/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/01/20/解读《工业物联网白皮书（2017版）》_背景和内涵/"/>
 
 
 
 
 
-  <title>Docker技术入门（二） | 云在青天水在瓶</title>
+  <title>解读《工业物联网白皮书（2017版）》_背景和内涵 | 云在青天水在瓶</title>
   
 
 
@@ -265,7 +267,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/24/Docker技术入门（二）/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/20/解读《工业物联网白皮书（2017版）》_背景和内涵/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="刘 奕">
@@ -282,7 +284,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Docker技术入门（二）</h1>
+          <h1 class="post-title" itemprop="name headline">解读《工业物联网白皮书（2017版）》_背景和内涵</h1>
         
 
         <div class="post-meta">
@@ -294,8 +296,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-24T22:26:02+08:00">
-                2017-12-24
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-20T14:58:10+08:00">
+                2018-01-20
               </time>
             
 
@@ -317,8 +319,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/容器/" itemprop="url" rel="index">
-                    <span itemprop="name">容器</span>
+                  <a href="/categories/物联网/" itemprop="url" rel="index">
+                    <span itemprop="name">物联网</span>
                   </a>
                 </span>
 
@@ -354,41 +356,47 @@
       
 
       
-        <p>在上一篇文章中我们初步了解了Docker是干嘛用的，以及有啥好处，那在这篇文章中我们来看看Docker怎么用。</p>
-<p>首先，需要理解Docker中几个核心的慨念。</p>
-<h3 id="镜像"><a href="#镜像" class="headerlink" title="镜像"></a>镜像</h3><p>和虚拟机里面的镜像的概念很类似，这里是指的针对Docker引擎的一种应用程序模板。比如说某个数据库的镜像文件，或者操作系统的镜像文件。</p>
-<h3 id="容器"><a href="#容器" class="headerlink" title="容器"></a>容器</h3><p>容器是镜像文件运行起来的一个实例。这就意味着一个镜像能够启动多个实例。</p>
-<h3 id="仓库"><a href="#仓库" class="headerlink" title="仓库"></a>仓库</h3><p>仓库是存放镜像文件的场所，通常是在远程服务器上。仓库分为公有仓库和私有仓库两种，公有仓库中的镜像向所有人开发。Docker官方维护的仓库<a href="https://hub.docker.com/" target="_blank" rel="noopener">Docker Hub</a>提供了超过100,000+的镜像。</p>
-<p>让我们来做个小实验，从远程的仓库中获取一个mysql的数据库镜像，然后运行它，并且通过一个数据库的客户端软件来连接。</p>
-<p>首先，我们要下载Docker的社区版进行安装。这里选择的安装的操作系统是CentOS 7。</p>
-<p><code>$ sudo yum install docker-ce</code></p>
-<p>该命令安装的是最新的Docker社区版。</p>
-<p>安装完成后需要启动Docker。</p>
-<p><code>$ sudo systemctl start docker</code></p>
-<p>现在，需要从Docker的官方仓库中将我们所需要的镜像文件弄到本地来。我们可以先在官方的仓库中查一下我们所需要的镜像是否存在。</p>
-<p><img src="\..\\images\pasted-0.png" alt="upload successful"></p>
-<p>可以看到有我们需要的mysql官方的镜像。</p>
-<p>将镜像文件拉到本地。</p>
-<p><code>$ docker pull mysql</code></p>
-<p>完成后即可启动运行一个mysql的容器，名字为test-mysql。因为是数据库的容器，所以必须设置环境变量MYSQL_ROOT_PASSWORD。</p>
-<p><code>$ docker run --name=test-mysql --env=&quot;MYSQL_ROOT_PASSWORD=mypassword&quot; mysql</code></p>
-<p>启动完成后，就可以查容器实例的状态。</p>
-<p><code>$ docker ps</code> </p>
-<p>该命令会列出所有运行的容器名。如果想列出所有不管运行还是停止的实例，后面加上参数 -a</p>
-<p><code>$ docker ps -a</code></p>
-<p>如果想做下过滤，可以使用参数 -f，比如：</p>
-<p><code>$ docker ps -f name=mysql</code></p>
-<p>运行结果为：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">CONTAINER ID   IMAGE  COMMAND                 CREATED STATUS PORTS    NAMES</span><br><span class="line">05ebad89ed39   mysql  &quot;docker-entrypoint...&quot;  5 days ago  Up 5 days   test-mysql</span><br></pre></td></tr></table></figure>
-<p>想停止该实例的运行，运行STOP命令即可（执行后容器还存在）。</p>
-<p><code>$ docker stop test-mysql</code></p>
-<p>如果想将容器从docker引擎中移除掉，运行rm命令（执行后容器不存在）。</p>
-<p><code>$ docker rm test-mysql</code></p>
-<p>要想连接数据库，必须知道数据库服务的IP地址和端口号。通过inspect命令可以查到该容器在docker引擎内部分配到的IP.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ docker inspect test-mysql | grep IPAddress</span><br><span class="line">  &quot;IPAddress&quot;: &quot;172.17.0.2&quot;</span><br></pre></td></tr></table></figure>
-<p>通过这个IP地址和默认的3306端口，其他容器可以方位到数据库。但是如果想从非容器的机器上来访问该IP和端口就不行了。这时，可以做一个端口映射，也就是将该容器的数据库访问端口和宿主机上的一个端口做映射。比如容器端口为3306，而宿主机的端口为6603，进行如下绑定：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ docker run --detach --name=test-mysql --env=&quot;MYSQL_ROOT_PASSWORD=mypassword&quot; --publish 6603:3306 mysql</span><br></pre></td></tr></table></figure>
-<p>这样，就可以通过访问宿主机的IP + 6603端口来实现访问数据的目的了。</p>
+        <p>在2017年9月，中国电子技术标准化研究院发布了最新的《工业物联网白皮书》。从该白皮书中我们可以窥视到当前国内业界对工业互联网的定义，现状的理解以及未来发展的展望。</p>
+<h2 id="发展背景"><a href="#发展背景" class="headerlink" title="发展背景"></a>发展背景</h2><p>发展现状：<strong>工业物联网推动产业转型升级</strong><br>工业物联网应用的出现，主要基于两个背景现状，一个是物联网技术本身的发展，再一个就是现在各国都提出的智能制造的战略方向（有点像三国鼎立，中国制造2025，美国先进制造伙伴计划，德国工业4.0）。这两个背景叠加在一起就形成了”物联网 + 制造业” = 工业物联网。其应用于生产制造的各个生命周期环节(如下图)。这种智能变革带来的好处是使得传统的产业得到改造，以生产驱动的经济发展方式向创新驱动的方式转变。从而促进整个产业结构的升级。</p>
+<p><img src="\..\\images\IIOT-01.png" alt="upload successful"></p>
+<p>发展需求：<strong>工业物联网契合产业应用需求</strong><br>目前可以看到工业领域，已经有很多基于工业物联网的应用来解决实际问题。大概可以分为以下这么几种应用：</p>
+<ul>
+<li><strong>实时监控。</strong> 这里面包括对设备状态，设备所处环境状态，原材料，在制品和人员的状态。全面掌握生产过程的各种数据，才能做到制造过程的智能执行。</li>
+<li><strong>物料管理与生产过程的连接。</strong> 通过RFID技术，对仓库中库存物料存储情况做到精准感知。在连接生产系统后，可以利用物料的仓库情况来进行更细粒度的生产排产。</li>
+<li><strong>设备的预防性诊断。</strong> 相比以前的定期诊断和维护，预防性诊断能够更及时的预知可能发生的设备故障，从而保障生产过程不会因为突发故障而造成停产损失。或者减少有些可用部件因定期维护更换所造成的不必要的损失。</li>
+</ul>
+<p>发展意义： <strong>工业物联网主力智能制造</strong><br>分三个层面来看。从国家层面上来将，意义在于产业结构的升级调整。从以前粗放式生产，变为精细化，节约型的生产方式。从企业层面来讲，工业物联网的技术应用于制造活动的各个环节，使得生产的效率更高，能耗等到节省。从个人层面来说，因为系统的自动化程度更高，更智能，使得人更能从繁重的工作中脱离出来。（但是也会带来失业的风险）</p>
+<h2 id="内涵"><a href="#内涵" class="headerlink" title="内涵"></a>内涵</h2><p>工业物联网从本质上讲要大于简单的 “工业 + 物联网”。其原因是工业领域自身原有的一些软硬件系统的，比如控制系统，工业软件。物联网技术要和这些原有系统相互结合，并且还要面临工业领域中更高的安全性，更恶劣的现场环境等问题。</p>
+<p>从下图中我们可以看到《白皮书》对工业物联网的本质的描述。</p>
+<p><img src="\..\\images\IIOT-02.png" alt="upload successful"></p>
+<p>《白皮书》给出的工业物联网的定义为：<br>工业物联网是通过工业资源的网络互联、数据互通和系统互操作，实现制造原料的灵活配置、制造过程的按需执行、制造工艺的合理优化和制造环境的快速适应，达到资源的高效利用，从而构建服务驱动型的新工业生态体系。</p>
+<p>从这个定义可以看出互联互通是方法，达到生产过程中各个环节的高效是目标。</p>
+<p>白皮书定义的工业物联网的六大典型特征：</p>
+<ul>
+<li>智能感知</li>
+<li>泛在连通</li>
+<li>精准控制</li>
+<li>数字建模</li>
+<li>实时分析</li>
+<li>迭代优化</li>
+</ul>
+<p>工业物联网的阶段包括如下：</p>
+<ul>
+<li>智能的感知控制</li>
+<li>全面的互联互通</li>
+<li>深度的数据应用</li>
+<li>创新的服务模式</li>
+</ul>
+<p><img src="\..\\images\IIOT-03.png" alt="upload successful"></p>
+<p>阶段的认识对于帮助企业明确工业4.0的实时步骤是很有好处的。在没有前面阶段的实施的情况下，跳到其他阶段是不具有可行性的。</p>
+<p>在向客户提供工业物联网的技术服务时，最需要show出来，去打动客户的部分就是你给客户带了什么价值。白皮书给出的价值定义如下：</p>
+<ul>
+<li>提升价值（准确的是说提升数据的价值）</li>
+<li>优化资源（工业资源得到最大利用）</li>
+<li>升级服务（将数据变为资产）</li>
+<li>激发创新（资源高效利用，营造创新环境）</li>
+</ul>
+<p>关于工业物联网的架构会在之后的文章中说明。</p>
 
       
     </div>
@@ -406,7 +414,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Docker/" rel="tag"># Docker</a>
+            <a href="/tags/IIOT/" rel="tag"># IIOT</a>
           
         </div>
       
@@ -419,8 +427,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/12/22/Docker技术入门(一)/" rel="next" title="Docker技术入门(一)">
-                <i class="fa fa-chevron-left"></i> Docker技术入门(一)
+              <a href="/2018/01/18/MQTT协议_报文/" rel="next" title="MQTT协议_报文">
+                <i class="fa fa-chevron-left"></i> MQTT协议_报文
               </a>
             
           </div>
@@ -428,10 +436,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/12/28/MQTT协议_发布订阅/" rel="prev" title="MQTT协议_发布订阅">
-                MQTT协议_发布订阅 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -565,7 +569,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#镜像"><span class="nav-number">1.</span> <span class="nav-text"><a href="#&#x955C;&#x50CF;" class="headerlink" title="&#x955C;&#x50CF;"></a>&#x955C;&#x50CF;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#容器"><span class="nav-number">2.</span> <span class="nav-text"><a href="#&#x5BB9;&#x5668;" class="headerlink" title="&#x5BB9;&#x5668;"></a>&#x5BB9;&#x5668;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#仓库"><span class="nav-number">3.</span> <span class="nav-text"><a href="#&#x4ED3;&#x5E93;" class="headerlink" title="&#x4ED3;&#x5E93;"></a>&#x4ED3;&#x5E93;</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#发展背景"><span class="nav-number">1.</span> <span class="nav-text"><a href="#&#x53D1;&#x5C55;&#x80CC;&#x666F;" class="headerlink" title="&#x53D1;&#x5C55;&#x80CC;&#x666F;"></a>&#x53D1;&#x5C55;&#x80CC;&#x666F;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#内涵"><span class="nav-number">2.</span> <span class="nav-text"><a href="#&#x5185;&#x6DB5;" class="headerlink" title="&#x5185;&#x6DB5;"></a>&#x5185;&#x6DB5;</span></a></li></ol></div>
             
 
           </div>
